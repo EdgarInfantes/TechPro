@@ -1,0 +1,41 @@
+
+<mat-toolbar color="">
+  <mat-toolbar-row>
+    <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon> menu</mat-icon>
+    </button>
+    <span style="font-size: 35px;" >TechPro UnLock Services</span>
+    <span class="example-spacer"></span>
+  
+
+    <div class="example-button-row">
+      <span class="iconPerson"><button mat-raised-button routerLink='/sign-up' class="example-icon">
+    <mat-icon>person</mat-icon>
+    SignUp</button></span>
+
+    <span class="iconLogin"><button mat-raised-button routerLink='/login' class="example-icon">
+      <mat-icon>login</mat-icon>LogIn</button ></span>
+    </div>
+    
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-sidenav-container><a mat-list-item routerLink='/login'></a>
+  <mat-sidenav #sidenav opened="true" mode="side">
+    <mat-nav-list>
+      <a  class="text" mat-list-item routerLink='/home'> HOME</a>
+      <a mat-list-item routerLink='/busqueda'>SERVICES</a>
+      <a mat-list-item routerLink='/contacto'> CONTACT</a>
+
+    </mat-nav-list>
+
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div style="height: 80vh;">
+      <router-outlet></router-outlet>
+    </div>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<!-- <router-outlet></router-outlet>-->
