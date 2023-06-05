@@ -4,7 +4,7 @@
     <button mat-icon-button (click)="sidenav.toggle()">
       <mat-icon> menu</mat-icon>
     </button>
-    <span style="font-size: 35px;" >TechPro UnLock Services</span>
+    <span style="font-size: 35px; cursor: pointer;" routerLink='/home' >TechPro UnLock Services</span>
     <span class="example-spacer"></span>
   
 
@@ -14,19 +14,38 @@
     SignUp</button></span>
 
     <span class="iconLogin"><button mat-raised-button routerLink='/login' class="example-icon">
-      <mat-icon>login</mat-icon>LogIn</button ></span>
+      <mat-icon>login</mat-icon>SignIn</button ></span>
     </div>
     
   </mat-toolbar-row>
 </mat-toolbar>
 
 <mat-sidenav-container><a mat-list-item routerLink='/login'></a>
-  <mat-sidenav #sidenav opened="true" mode="side">
+  <mat-sidenav #sidenav opened="false" mode="side">
     <mat-nav-list>
-      <a  class="text" mat-list-item routerLink='/home'> HOME</a>
+      <a class="text" mat-list-item routerLink="/home">HOME</a>
       <a mat-list-item routerLink='/busqueda'>SERVICES</a>
-      <a mat-list-item routerLink='/contacto'> CONTACT</a>
-
+      <mat-menu #contactMenu="matMenu">
+        <button mat-menu-item>
+          <a mat-button href="http://t.me/Tech_Pro3?text=Hola.%20Necesito%20ayuda." target="_blank">
+            <mat-icon>telegram</mat-icon> Telegram
+          </a>
+        </button>
+        <button mat-menu-item>
+          <a mat-button href="https://www.facebook.com/profile.php?id=100087514902085&mibextid=ZbWKwL" target="_blank">
+            <mat-icon>facebook</mat-icon> Facebook
+          </a>
+        </button>
+        <button mat-menu-item>
+          <a mat-button href="https://bit.ly/3D4F981" target="_blank">
+            <img src="https://ya.mba/8NY" height="20px" width="20px" alt="WhatsApp" style="margin-top: 5px;">
+            <span style="vertical-align: middle; margin-left: 12px; margin-top: -20px;">WhatsApp</span>
+          </a>
+        </button>
+      </mat-menu>
+      <button mat-button [matMenuTriggerFor]="contactMenu">
+        <span style="margin-left: 10px;">  CONTACT</span>
+      </button>
     </mat-nav-list>
 
   </mat-sidenav>
@@ -34,7 +53,6 @@
     <div style="height: 80vh;">
       <router-outlet></router-outlet>
     </div>
-
   </mat-sidenav-content>
 </mat-sidenav-container>
 
